@@ -18,7 +18,8 @@ cartItems.forEach((cartitem )=> {
 
 ordersummeryHTML += 
 `
-          <div class="cart-item-container" data-product-id = ${matchingItem.id}">
+          <div class="cart-item-container 
+         delet-${matchingItem.id}">
             <div class="delivery-date">
               Delivery date: Wednesday, June 15
             </div>
@@ -106,8 +107,12 @@ const deleteLink = document.querySelectorAll('.js-delete-link');
 deleteLink.forEach((link) => {
    link.addEventListener( 'click',() => {
     const productId = link.dataset.productId;
-    removeFromCart(productId); 
-    
+     
+    const container = document.querySelector(`.delet-${productId}`)
+    console.log(container);
+    container.remove()
+    removeFromCart(productId);
+   
    })
 
 })
