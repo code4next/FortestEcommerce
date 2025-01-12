@@ -108,7 +108,6 @@ deleteLink.forEach((link) => {
     const productId = link.dataset.productId;
     removeFromCart(productId); 
     
-    
    })
 
 })
