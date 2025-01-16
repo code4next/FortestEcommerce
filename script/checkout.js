@@ -1,5 +1,6 @@
 import { cartItems , removeFromCart} from '../data/cart.js';
 import { products} from '../data/products.js';
+import '../data/OOP/OOP.js';
 
 let ordersummeryHTML = '';
 
