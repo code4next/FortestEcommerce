@@ -50,25 +50,10 @@ cartItems.forEach((cartitem) => {
                 <div class="delivery-options-title">
                   Choose a delivery option:
                 </div>
-
-               
-               
-
-
-
-                ${renderDeliveryOptionHTML(matchingItem)}
-
-                <div class="delivery-option">
-                  <input type="radio" class="delivery-option-input"
-                    name="delivery-option-${matchingItem.id}">
-                  <div>
-                    <div class="delivery-option-date">
-                      Monday, June 13
-                    </div>
-                    <div class="delivery-option-price">
-                      $9.99 - Shipping
-                    </div>
-                  </div>
+                
+                  ${renderDeliveryOptionHTML(matchingItem)}
+                 
+        
                 </div>
               </div>
             </div>
@@ -125,6 +110,7 @@ function renderDeliveryOptionHTML(matchingItem) {
     
     `;
   });
+  return deliveryOptionHTML
   console.log( deliveryOptionHTML );
 }
 
