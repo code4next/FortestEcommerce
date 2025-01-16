@@ -1,3 +1,5 @@
+import { deliveryOptions } from "./deleveryOptions.js";
+
 export let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
 export function updateLocalStorage() {
@@ -18,6 +20,7 @@ export function addTocart(productId){
     cartItems.push({
       productId,
       quantity: 1,
+     
     });
   }
 }
