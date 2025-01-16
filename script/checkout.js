@@ -1,7 +1,6 @@
 import { cartItems , removeFromCart} from '../data/cart.js';
 import { products} from '../data/products.js';
-import '../data/OOP/OOP.js';
-
+import {deliveryOptions } from '../data/deleveryOptions.js';
 let ordersummeryHTML = '';
 
 cartItems.forEach((cartitem )=> {
@@ -117,3 +116,5 @@ deleteLink.forEach((link) => {
    })
 
 })
+
+console.log(deliveryOptions);
