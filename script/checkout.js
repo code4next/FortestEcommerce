@@ -2,7 +2,9 @@ import { cartItems, removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { deliveryOptions } from "../data/deleveryOptions.js";
 import { addDays } from "./utils/days.js";
+import {formateCurency} from './utils/money.js';
 let ordersummeryHTML = "";
+
 
 cartItems.forEach((cartitem) => {
   const productId = cartitem.productId;
@@ -90,7 +92,7 @@ function renderDeliveryOptionHTML(matchingItem) {
     console.log(deliveryOption.deleveryDay + ' days');
     console.log(deliveryOption.costCents / 100 + " $");
  const dateString = addDays(deliveryOption.deleveryDay);
- const priceString = deliveryOption.costCents === 0 ?  "Free" : deliveryOption.costCents;
+ const priceString = deliveryOption.costCents === 0 ?  "Free" : formateCurency(deliveryOption.costCents ) ;
   
     deliveryOptionHTML += `
  <div class="delivery-option">
