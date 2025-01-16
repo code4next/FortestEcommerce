@@ -1,7 +1,7 @@
 import { cartItems , removeFromCart} from '../data/cart.js';
 import { products} from '../data/products.js';
 
-let ordersummeryHTML;
+let ordersummeryHTML = '';
 
 cartItems.forEach((cartitem )=> {
     const productId = cartitem.productId;
