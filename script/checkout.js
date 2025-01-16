@@ -17,21 +17,27 @@ cartItems.forEach((cartitem) => {
     }
   });
 
+//! working area
 
+const deleveryOptionId = cartitem.deliveryOptionId;
 
-const deleveryOptionId = cartitem.deleveryOptionId;
 
 let deliveryOption;
 
 deliveryOptions.forEach(option =>{
+  console.log(option.id);
   if(option.id === deleveryOptionId){
     deliveryOption = option;
+    console.log(option);
+    console.log(deliveryOption);
 
   }
 })
 
-console.log(deliveryOption);
+
 // const dateString = addDays(deliveryOption.deleveryDay);
+
+//!working are
 
   ordersummeryHTML += `
           <div class="cart-item-container 
@@ -105,7 +111,10 @@ function renderDeliveryOptionHTML(matchingItem , cartitem) {
   deliveryOptions.forEach((deliveryOption) => {
  const dateString = addDays(deliveryOption.deleveryDay);
  const priceString = deliveryOption.costCents === 0 ?  "Free" : formateCurency(deliveryOption.costCents ) ;
+
+ //! working area
  const isChecked = deliveryOption.id === cartitem.deliveryOptionId;
+ //! working area
 
   
     deliveryOptionHTML += `
