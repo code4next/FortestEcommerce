@@ -114,7 +114,6 @@ function renderDeliveryOptionHTML(matchingItem) {
     `;
   });
   return deliveryOptionHTML
-  console.log( deliveryOptionHTML );
 }
 
 
