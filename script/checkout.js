@@ -89,7 +89,8 @@ function renderDeliveryOptionHTML(matchingItem) {
     console.log(deliveryOption.id);
     console.log(deliveryOption.deleveryDay + ' days');
     console.log(deliveryOption.costCents / 100 + " $");
-
+ const dateString = addDays(deliveryOption.deleveryDay);
+ const priceString = deliveryOption.costCents === 0 ?  "Free" : deliveryOption.costCents;
   
     deliveryOptionHTML += `
  <div class="delivery-option">
@@ -97,11 +98,11 @@ function renderDeliveryOptionHTML(matchingItem) {
                     name="delivery-option-${matchingItem.id}">
                   <div>
                     <div class="delivery-option-date">
-                      ${addDays(deliveryOption.deleveryDay)}
+                      ${dateString} 
                     </div>
                     <div class="delivery-option-price">
 
-                      $
+                      $ ${priceString} - Shiping
 
 
                     </div>
