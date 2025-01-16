@@ -88,9 +88,6 @@ function renderDeliveryOptionHTML(matchingItem) {
   let deliveryOptionHTML = "";
 
   deliveryOptions.forEach((deliveryOption) => {
-    console.log(deliveryOption.id);
-    console.log(deliveryOption.deleveryDay + ' days');
-    console.log(deliveryOption.costCents / 100 + " $");
  const dateString = addDays(deliveryOption.deleveryDay);
  const priceString = deliveryOption.costCents === 0 ?  "Free" : formateCurency(deliveryOption.costCents ) ;
   
@@ -113,7 +110,6 @@ function renderDeliveryOptionHTML(matchingItem) {
     
     `;
   });
-  console.log(cartItems);
   return deliveryOptionHTML
 }
 
