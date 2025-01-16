@@ -57,7 +57,7 @@ cartItems.forEach((cartitem) => {
 
 
                 ${renderDeliveryOptionHTML(matchingItem)}
-                
+
                 <div class="delivery-option">
                   <input type="radio" class="delivery-option-input"
                     name="delivery-option-${matchingItem.id}">
@@ -104,6 +104,7 @@ function renderDeliveryOptionHTML(matchingItem) {
     console.log(deliveryOption.id);
     console.log(deliveryOption.deleveryDay + ' days');
     console.log(deliveryOption.costCents / 100 + " $");
+
   
     deliveryOptionHTML += `
  <div class="delivery-option">
@@ -111,10 +112,13 @@ function renderDeliveryOptionHTML(matchingItem) {
                     name="delivery-option-${matchingItem.id}">
                   <div>
                     <div class="delivery-option-date">
-                      Wednesday, June 15
+                      ${addDays(deliveryOption.deleveryDay)}
                     </div>
                     <div class="delivery-option-price">
-                      $4.99 - Shipping
+
+                      $
+
+
                     </div>
                   </div>
                 </div>
