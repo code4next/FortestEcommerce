@@ -76,7 +76,6 @@ deleteLink.forEach((link) => {
     const productId = link.dataset.productId;
 
     const container = document.querySelector(`.delet-${productId}`);
-    console.log(container);
     container.remove();
     removeFromCart(productId);
   });
@@ -114,3 +113,14 @@ function renderDeliveryOptionHTML(matchingItem) {
 }
 
 
+console.log(deliveryOptions);
+console.log(cartItems);
+let i = undefined ;
+for(let i = 0 ;i< 3 ; i ++) {
+  i = i
+  
+}
+cartItems.forEach((cartitme , i ) =>{
+
+  console.log(cartitme.deliveryOption = deliveryOptions[i].id ); 
+})

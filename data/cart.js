@@ -1,6 +1,27 @@
 import { deliveryOptions } from "./deleveryOptions.js";
 
-export let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+export let cartItems = JSON.parse(localStorage.getItem('cartItems')) || 
+[
+  {
+    productId: undefined,
+    quantity : 2,
+    deliveryOptionId: '1'
+
+  },
+  {
+    productId: undefined,
+    quantity : 5,
+    deliveryOptionId: '2'
+
+  },
+  {
+    productId: undefined,
+    quantity : 6,
+    deliveryOptionId: '3'
+
+  },
+  
+];
 
 export function updateLocalStorage() {
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
