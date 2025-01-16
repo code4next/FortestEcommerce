@@ -41,7 +41,7 @@ export function addTocart(productId){
     cartItems.push({
       productId,
       quantity: 1,
-      deliveryOptionId: '1'
+      deliveryOptionId: '2'
      
     });
   }

@@ -17,11 +17,27 @@ cartItems.forEach((cartitem) => {
     }
   });
 
+
+
+const deleveryOptionId = cartitem.deleveryOptionId;
+
+let deliveryOption;
+
+deliveryOptions.forEach(option =>{
+  if(option.id === deleveryOptionId){
+    deliveryOption = option;
+
+  }
+})
+
+console.log(deliveryOption);
+// const dateString = addDays(deliveryOption.deleveryDay);
+
   ordersummeryHTML += `
           <div class="cart-item-container 
          delet-${matchingItem.id}">
             <div class="delivery-date">
-              Delivery date: Wednesday, June 15
+              Delivery date: {dateString}
             </div>
 
             <div class="cart-item-details-grid">
@@ -53,7 +69,7 @@ cartItems.forEach((cartitem) => {
                   Choose a delivery option:
                 </div>
                 
-                  ${renderDeliveryOptionHTML(matchingItem)}
+                  ${renderDeliveryOptionHTML(matchingItem , cartitem)}
                  
         
                 </div>
@@ -83,16 +99,18 @@ deleteLink.forEach((link) => {
 
 
 
-function renderDeliveryOptionHTML(matchingItem) {
+function renderDeliveryOptionHTML(matchingItem , cartitem) {
   let deliveryOptionHTML = "";
 
   deliveryOptions.forEach((deliveryOption) => {
  const dateString = addDays(deliveryOption.deleveryDay);
  const priceString = deliveryOption.costCents === 0 ?  "Free" : formateCurency(deliveryOption.costCents ) ;
+ const isChecked = deliveryOption.id === cartitem.deliveryOptionId;
+
   
     deliveryOptionHTML += `
  <div class="delivery-option">
-                  <input type="radio" ${ deliveryOptions.id === cartItems.id  ? "checked" :  ""  } class="delivery-option-input"
+                  <input type="radio" ${isChecked ? "checked" : ""} class="delivery-option-input"
                     name="delivery-option-${matchingItem.id}">
                   <div>
                     <div class="delivery-option-date">
@@ -111,16 +129,3 @@ function renderDeliveryOptionHTML(matchingItem) {
   });
   return deliveryOptionHTML
 }
-
-
-console.log(deliveryOptions);
-console.log(cartItems);
-let i = undefined ;
-for(let i = 0 ;i< 3 ; i ++) {
-  i = i
-  
-}
-cartItems.forEach((cartitme , i ) =>{
-
-  console.log(cartitme.deliveryOption = deliveryOptions[i].id ); 
-})
