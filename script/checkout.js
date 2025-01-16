@@ -96,7 +96,7 @@ function renderDeliveryOptionHTML(matchingItem) {
   
     deliveryOptionHTML += `
  <div class="delivery-option">
-                  <input type="radio" class="delivery-option-input"
+                  <input type="radio" ${ deliveryOptions.id === cartItems.id  ? "checked" :  ""  } class="delivery-option-input"
                     name="delivery-option-${matchingItem.id}">
                   <div>
                     <div class="delivery-option-date">
@@ -113,6 +113,7 @@ function renderDeliveryOptionHTML(matchingItem) {
     
     `;
   });
+  console.log(cartItems);
   return deliveryOptionHTML
 }
 
