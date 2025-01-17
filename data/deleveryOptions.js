@@ -5,12 +5,12 @@ export const deliveryOptions = [
     costCents: 0,
   },
   {
-    id: "1",
+    id: "2",
     deleveryDay: 3,
     costCents: 499,
   },
   {
-    id: "1",
+    id: "3",
     deleveryDay: 1,
     costCents: 999,
   },

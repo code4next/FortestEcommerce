@@ -25,11 +25,10 @@ const deleveryOptionId = cartitem.deliveryOptionId;
 let deliveryOption;
 
 deliveryOptions.forEach(option =>{
-  console.log(option.id);
+  // console.log(option.id);
   if(option.id === deleveryOptionId){
     deliveryOption = option;
-    console.log(option);
-    console.log(deliveryOption);
+    // console.log(option);
 
   }
 })
@@ -112,10 +111,8 @@ function renderDeliveryOptionHTML(matchingItem , cartitem) {
  const dateString = addDays(deliveryOption.deleveryDay);
  const priceString = deliveryOption.costCents === 0 ?  "Free" : formateCurency(deliveryOption.costCents ) ;
 
- //! working area
+
  const isChecked = deliveryOption.id === cartitem.deliveryOptionId;
- //! look at 123 line
- //!  working area
 
   
     deliveryOptionHTML += `
