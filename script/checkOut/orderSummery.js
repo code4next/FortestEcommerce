@@ -97,6 +97,7 @@ export function renderOrderSummery() {
       const container = document.querySelector(`.delet-${productId}`);
       container.remove();
       removeFromCart(productId);
+      paymentSummery()
     });
   });
 
@@ -146,6 +147,7 @@ export function renderOrderSummery() {
       console.log(productId, deliveryoptionId);
       updateDeliveryOption(productId, deliveryoptionId);
       renderOrderSummery();
+      paymentSummery()
     });
   });
 }
