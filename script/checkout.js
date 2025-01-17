@@ -1,4 +1,8 @@
-import { cartItems, removeFromCart } from "../data/cart.js";
+import {
+  cartItems,
+  removeFromCart,
+  updateDeliveryOption,
+} from "../data/cart.js";
 import { products } from "../data/products.js";
 import { deliveryOptions } from "../data/deleveryOptions.js";
 import { addDays } from "./utils/days.js";
@@ -16,10 +20,6 @@ cartItems.forEach((cartitem) => {
     }
   });
 
-  //! working area
-  //! working area
-  //! working area
-
   const deleveryOptionId = cartitem.deliveryOptionId;
 
   let deliveryOption;
@@ -31,10 +31,6 @@ cartItems.forEach((cartitem) => {
   });
 
   const dateString = addDays(deliveryOption.deleveryDay);
-
-  //!working are
-  //!working are
-  //!working are
 
   ordersummeryHTML += `
           <div class="cart-item-container 
@@ -117,7 +113,7 @@ function renderDeliveryOptionHTML(matchingItem, cartitem) {
     const isChecked = deliveryOption.id === cartitem.deliveryOptionId;
 
     deliveryOptionHTML += `
- <div class="delivery-option">
+ <div class="delivery-option js-delivery-option" data-product-id = "${matchingItem.id}" data-deliveryOption-id = "${deliveryOption.id}">
                   <input type="radio" ${
                     isChecked ? "checked" : ""
                   } class="delivery-option-input"
@@ -139,3 +135,13 @@ function renderDeliveryOptionHTML(matchingItem, cartitem) {
   });
   return deliveryOptionHTML;
 }
+document.querySelectorAll(".js-delivery-option").forEach((element) => {
+  element.addEventListener("click", () => {
+    const {productId , deliveryoptionId} = element.dataset;
+    //! think about how to track otpiton
+    //? think about how to track otpiton
+    //! think about how to track otpiton
+    console.log(productId ,deliveryoptionId);
+    updateDeliveryOption(productId , deliveryoptionId)
+  });
+});
