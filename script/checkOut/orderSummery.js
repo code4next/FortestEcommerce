@@ -8,6 +8,7 @@ import { products } from "../../data/products.js";
 import { deliveryOptions } from "../../data/deleveryOptions.js";
 import { addDays } from "../utils/days.js";
 import { formateCurency } from "../utils/money.js";
+import { getDeliveryOptions } from "../../data/deleveryOptions.js";
 
 export function renderOrderSummery() {
   let ordersummeryHTML = "";
@@ -25,13 +26,7 @@ export function renderOrderSummery() {
 
     const deleveryOptionId = cartitem.deliveryOptionId;
 
-    let deliveryOption;
-
-    deliveryOptions.forEach((option) => {
-      if (option.id === deleveryOptionId) {
-        deliveryOption = option;
-      }
-    });
+    const deliveryOption = getDeliveryOptions(deleveryOptionId);
 
     const dateString = addDays(deliveryOption.deleveryDay);
 
@@ -51,7 +46,8 @@ export function renderOrderSummery() {
                      ${matchingItem.name}
                     </div>
                     <div class="product-price">
-                      $20.95
+
+                      $${formateCurency(matchingItem.priceCents)}
                     </div>
                     <div class="product-quantity">
                       <span>
