@@ -2,9 +2,8 @@ import { cartItems, removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { deliveryOptions } from "../data/deleveryOptions.js";
 import { addDays } from "./utils/days.js";
-import {formateCurency} from './utils/money.js';
+import { formateCurency } from "./utils/money.js";
 let ordersummeryHTML = "";
-
 
 cartItems.forEach((cartitem) => {
   const productId = cartitem.productId;
@@ -17,32 +16,31 @@ cartItems.forEach((cartitem) => {
     }
   });
 
-//! working area
+  //! working area
+  //! working area
+  //! working area
 
-const deleveryOptionId = cartitem.deliveryOptionId;
+  const deleveryOptionId = cartitem.deliveryOptionId;
 
+  let deliveryOption;
 
-let deliveryOption;
+  deliveryOptions.forEach((option) => {
+    if (option.id === deleveryOptionId) {
+      deliveryOption = option;
+    }
+  });
 
-deliveryOptions.forEach(option =>{
-  // console.log(option.id);
-  if(option.id === deleveryOptionId){
-    deliveryOption = option;
-    // console.log(option);
+  const dateString = addDays(deliveryOption.deleveryDay);
 
-  }
-})
-
-
-// const dateString = addDays(deliveryOption.deleveryDay);
-
-//!working are
+  //!working are
+  //!working are
+  //!working are
 
   ordersummeryHTML += `
           <div class="cart-item-container 
          delet-${matchingItem.id}">
             <div class="delivery-date">
-              Delivery date: {dateString}
+              Delivery date: ${dateString}
             </div>
 
             <div class="cart-item-details-grid">
@@ -58,12 +56,16 @@ deliveryOptions.forEach(option =>{
                 </div>
                 <div class="product-quantity">
                   <span>
-                    Quantity: <span class="quantity-label">${cartitem.quantity}</span>
+                    Quantity: <span class="quantity-label">${
+                      cartitem.quantity
+                    }</span>
                   </span>
                   <span class="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span class="delete-quantity-link js-delete-link  link-primary" data-product-id = ${matchingItem.id}>
+                  <span class="delete-quantity-link js-delete-link  link-primary" data-product-id = ${
+                    matchingItem.id
+                  }>
                     Delete
                   </span>
                 </div>
@@ -74,7 +76,7 @@ deliveryOptions.forEach(option =>{
                   Choose a delivery option:
                 </div>
                 
-                  ${renderDeliveryOptionHTML(matchingItem , cartitem)}
+                  ${renderDeliveryOptionHTML(matchingItem, cartitem)}
                  
         
                 </div>
@@ -102,22 +104,23 @@ deleteLink.forEach((link) => {
   });
 });
 
-
-
-function renderDeliveryOptionHTML(matchingItem , cartitem) {
+function renderDeliveryOptionHTML(matchingItem, cartitem) {
   let deliveryOptionHTML = "";
 
   deliveryOptions.forEach((deliveryOption) => {
- const dateString = addDays(deliveryOption.deleveryDay);
- const priceString = deliveryOption.costCents === 0 ?  "Free" : formateCurency(deliveryOption.costCents ) ;
+    const dateString = addDays(deliveryOption.deleveryDay);
+    const priceString =
+      deliveryOption.costCents === 0
+        ? "FREE"
+        : formateCurency(deliveryOption.costCents) + " -";
 
+    const isChecked = deliveryOption.id === cartitem.deliveryOptionId;
 
- const isChecked = deliveryOption.id === cartitem.deliveryOptionId;
-
-  
     deliveryOptionHTML += `
  <div class="delivery-option">
-                  <input type="radio" ${isChecked ? "checked" : ""} class="delivery-option-input"
+                  <input type="radio" ${
+                    isChecked ? "checked" : ""
+                  } class="delivery-option-input"
                     name="delivery-option-${matchingItem.id}">
                   <div>
                     <div class="delivery-option-date">
@@ -125,7 +128,7 @@ function renderDeliveryOptionHTML(matchingItem , cartitem) {
                     </div>
                     <div class="delivery-option-price">
 
-                      $ ${priceString} - Shiping
+                      $ ${priceString}  Shiping
 
 
                     </div>
@@ -134,5 +137,5 @@ function renderDeliveryOptionHTML(matchingItem , cartitem) {
     
     `;
   });
-  return deliveryOptionHTML
+  return deliveryOptionHTML;
 }
