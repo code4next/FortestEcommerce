@@ -1,3 +1,3 @@
 export function formateCurency(monyInCents) {
-  return (monyInCents / 100).toFixed(2);
+  return (Math.round( monyInCents) / 100).toFixed(2);
 }

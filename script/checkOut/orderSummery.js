@@ -9,6 +9,7 @@ import { deliveryOptions } from "../../data/deleveryOptions.js";
 import { addDays } from "../utils/days.js";
 import { formateCurency } from "../utils/money.js";
 import { getDeliveryOptions } from "../../data/deleveryOptions.js";
+import { paymentSummery } from "./paymentSummery.js";
 
 export function renderOrderSummery() {
   let ordersummeryHTML = "";
