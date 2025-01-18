@@ -14,3 +14,4 @@ export function getDeliveryOptions(deleveryOptionId){
   });
   return deliveryOption || deliveryOptions[0]
 }
+[].length

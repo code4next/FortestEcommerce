@@ -1,11 +1,12 @@
 @charset "UTF-8";
 body {
   overflow-y: scroll;
+  background: #2120207b;
 }
 
 .jasmine_html-reporter {
   width: 100%;
-  background-color: #eee;
+  background-color: #000000bc;
   padding: 5px;
   margin: -8px;
   font-size: 11px;

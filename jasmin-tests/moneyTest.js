@@ -13,5 +13,4 @@ describe('Test sute: testMoney',() =>{
         expect(formateCurency(2000.5)).toEqual('20.01')
     })
 
-
 })
